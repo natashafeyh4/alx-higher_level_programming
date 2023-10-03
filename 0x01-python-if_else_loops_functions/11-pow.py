@@ -1,11 +1,7 @@
 #!/usr/bin/python3
+# 11-pow.py
+
 
 def pow(a, b):
-    return a ** b
-
-# Testing the function
-print(pow(2, 2))
-print(pow(98, 2))
-print(pow(98, 0))
-print(pow(100, -2))
-print(pow(-4, 5))
+    """Return a to the power of b."""
+    return (a ** b)
