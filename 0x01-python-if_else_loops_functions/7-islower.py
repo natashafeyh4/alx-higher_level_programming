@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+# 7-islower.py
+
 
 def islower(c):
-    return ord('a') <= ord(c) <= ord('z')
-
-# Testing the function
-print("a is", "lower" if islower("a") else "upper")
-print("H is", "lower" if islower("H") else "upper")
+    """Check for lowercase characters."""
+    if ord(c) >= 97 and ord(c) <= 122:
+        return True
+    else:
+        return False
