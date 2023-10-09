@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# 11-delete_at.py
+
 def divisible_by_2(my_list=[]):
     return [item % 2 == 0 for item in my_list]
 
