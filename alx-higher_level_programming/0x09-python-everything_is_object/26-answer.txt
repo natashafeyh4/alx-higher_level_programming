@@ -1,1 +1,5 @@
-Yes
+#!/usr/bin/python3
+# 26-main.py
+answer = __import__('26-answer').answer
+
+print(answer)
