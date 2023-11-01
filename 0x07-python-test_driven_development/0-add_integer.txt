@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+"""
+This is the '0-add_integer' module.
+
+0-add_integer uses the 'add_integer' function to add two integers.
+
+Here's an example:
+    add_integer(1, 2)
+    This returns: 3
+"""
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testfile("tests/0-add_integer.txt")
