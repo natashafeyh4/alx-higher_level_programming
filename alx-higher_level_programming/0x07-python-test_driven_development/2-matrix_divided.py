@@ -1,20 +1,30 @@
 #!/usr/bin/python3
-"""Module to divide all elements of a matrix
+"""Module to add two integers
 """
 
-
-def matrix_divided(matrix, div):
-    """Function to divide all elements of a matrix by a number
+def add_integer(a, b=98):
+    """Function to add two integers
         Args:
-            matrix (list of lists): The input matrix
-            div (int or float): The number to divide by
+            a (int): First integer
+            b (int, optional): Second integer, defaults to 98
         Returns:
-            list of lists: A new matrix with elements divided by div
+            int: The addition of a and b
     """
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
-    if div == 0:
-        raise ZeroDivisionError("division by zero")
-    return [[round(element / div, 2) for element in row] for row in matrix]
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        raise TypeError("a must be an integer or b must be an integer")
+    return int(a) + int(b)
+
+# Test cases
+if __name__ == "__main__":
+    print(add_integer(1, 2))  # Should print 3
+    print(add_integer(100, -2))  # Should print 98
+    print(add_integer(2))  # Should print 100
+    print(add_integer(100.3, -2))  # Should print 98
+    try:
+        print(add_integer(4, "School"))
+    except Exception as e:
+        print(e)  # Should print 'a must be an integer or b must be an integer'
+    try:
+        print(add_integer(None))
+    except Exception as e:
+        print(e)  # Should print 'a must be an integer or b must be an integer'

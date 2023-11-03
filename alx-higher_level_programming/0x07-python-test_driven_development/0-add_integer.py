@@ -1,23 +1,30 @@
 #!/usr/bin/python3
-
-"""add_integer adds integers
+"""Module to add two integers
 """
 
-
 def add_integer(a, b=98):
-    """Calculates sum of two integers
-    Args:
-        a(int): the first integer
-        b(int): the second integer
-    Return:
-        int: The sum of a and b
+    """Function to add two integers
+        Args:
+            a (int): First integer
+            b (int, optional): Second integer, defaults to 98
+        Returns:
+            int: The addition of a and b
     """
-    if isinstance(a, float):
-        a = int(a)
-    if isinstance(b, float):
-        b = int(b)
-    if not isinstance(a, int):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, int):
-        raise TypeError("b must be an integer")
-    return a + b
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        raise TypeError("a must be an integer or b must be an integer")
+    return int(a) + int(b)
+
+# Test cases
+if __name__ == "__main__":
+    print(add_integer(1, 2))  # Should print 3
+    print(add_integer(100, -2))  # Should print 98
+    print(add_integer(2))  # Should print 100
+    print(add_integer(100.3, -2))  # Should print 98
+    try:
+        print(add_integer(4, "School"))
+    except Exception as e:
+        print(e)  # Should print 'a must be an integer or b must be an integer'
+    try:
+        print(add_integer(None))
+    except Exception as e:
+        print(e)  # Should print 'a must be an integer or b must be an integer'
