@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-"""Takes in a URL, sends a request, and displays the body of the response with error handling"""
-
-import urllib.request
-import urllib.error
-import sys
+"""0x11. Python - Network #1, task 3. Error code #0
+"""
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    
+    from urllib import request, error
+    from sys import argv
+
     try:
-        with urllib.request.urlopen(url) as response:
-            print(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        print("Error code:", e.code)
+        with request.urlopen(argv[1]) as response:
+            html = response.read()
+        print(html.decode(response.headers.get_content_charset()))
+    except error.URLError as err:
+        print('Error code: {}'.format(err.code))

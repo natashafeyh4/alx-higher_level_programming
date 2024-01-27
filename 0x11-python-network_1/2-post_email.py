@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""Takes in a URL and an email, sends a POST request, and displays the body of the response"""
-
-import urllib.request
-import urllib.parse
-import sys
+"""0x11. Python - Network #1, task 2. POST an email #0
+"""
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    email = sys.argv[2]
-    
-    data = urllib.parse.urlencode({"email": email}).encode("utf-8")
-    with urllib.request.urlopen(url, data=data) as response:
-        print("Your email is:", response.read().decode("utf-8"))
+    from urllib import parse, request
+    from sys import argv
+
+    data_dict = {'email': argv[2]}
+    data = parse.urlencode(data_dict).encode()
+    req = request.Request(argv[1], data=data)
+
+    with request.urlopen(req) as response:
+        html = response.read()
+
+    print(html.decode(response.headers.get_content_charset()))

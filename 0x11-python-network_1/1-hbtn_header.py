@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""Takes in a URL, sends a request, and displays the value of X-Request-Id variable in the header"""
-
-import urllib.request
-import sys
+"""0x11. Python - Network #1, task 1. Response header value #0
+"""
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    
-    with urllib.request.urlopen(url) as response:
-        header_value = response.getheader("X-Request-Id")
-        print(header_value)
+    from urllib import request
+    from sys import argv
+
+    with request.urlopen(argv[1]) as response:
+        print(response.getheader('X-Request-Id'))
