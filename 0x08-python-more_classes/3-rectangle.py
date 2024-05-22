@@ -2,12 +2,9 @@
 
 """
 Create class Rectangle that defines a rectangle by
-private instance attribute: `width:`, and `height:`
-Methods getter and Setter properties for the width and height
-And raising errors if certain conditionas are not met.
-Public instance method of area that returns the area of the rectangle.
-Public instance method of perimeter that returns the perimeter:
-if width or height is 0, perimeter is 0.
+everything from Module 2-rectangle
+and expanding that to include:
+printing out a rectangle with # character using print() and str()
 """
 
 
@@ -18,6 +15,7 @@ class Rectangle:
     Args:
         width (int)
         height (int)
+    Dazzit, Dazzall.
     """
     def __init__(self, width=0, height=0):
         # initialize private attributes
@@ -34,11 +32,9 @@ class Rectangle:
         # verify that value is an integer
         if type(value) is not int or isinstance(value, (float, bool)):
             raise TypeError("width must be an integer")
-
         # check that value is >= 0
         if value < 0:
             raise ValueError("width must be >= 0")
-
         # update private instance attribute
         self.__width = value
 
@@ -52,11 +48,9 @@ class Rectangle:
         # verify that value is an integer
         if type(value) is not int or isinstance(value, (float, bool)):
             raise TypeError("height must be an integer")
-
-        # check if value is >= 0
+        # check that value is >= 0
         if value < 0:
             raise ValueError("height must be >= 0")
-
         # update private instance attribute
         self.__height = value
 
@@ -75,3 +69,22 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """Print out a rectangle with the # character.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        rectangle_str = ""
+        """
+        as an alternative:
+        for h in range(self.__height):
+            for w in range(self.__width):
+                rectangle_str += "#"
+                rectangle_str += "\n"
+        return rectangle_str[:-1]
+        """
+        for r in range(self.__height):
+            rectangle_str += "#" * self.__width + "\n"
+        return rectangle_str[:-1]  # to remove the trailing newline
